@@ -15,6 +15,9 @@ class MainViewModel(
     val counter: LiveData<Int>
         get() = dataSource.getCounterFlow().asLiveData(Dispatchers.Main)
 
+    val Price: LiveData<String>
+        get() = dataSource.getPriceFlow().asLiveData(Dispatchers.Main)
+
     fun increment() {
         viewModelScope.launch {
             dataSource.increment()
@@ -26,4 +29,13 @@ class MainViewModel(
             dataSource.decrement()
         }
     }
+
+    fun totalPrice() {
+        viewModelScope.launch {
+            dataSource.totalPrice()
+        }
+    }
 }
+
+
+

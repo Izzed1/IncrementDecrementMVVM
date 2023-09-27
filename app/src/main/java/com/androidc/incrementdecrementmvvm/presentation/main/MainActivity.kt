@@ -29,15 +29,24 @@ class MainActivity : AppCompatActivity() {
         viewModel.counter.observe(this) {
             binding.tvCounter.text = it.toString()
         }
+        viewModel.Price.observe(this) {
+            binding.tvTotalPrice.text = it.toString()
+        }
     }
 
     private fun setOnClickListener() {
         binding.btnDecrement.setOnClickListener {
             decrement()
+            totalPrice()
         }
         binding.btnIncrement.setOnClickListener {
             increment()
+            totalPrice()
         }
+    }
+
+    private fun totalPrice() {
+        viewModel.totalPrice()
     }
 
     private fun decrement() {
