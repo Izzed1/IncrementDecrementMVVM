@@ -5,12 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
-    private val _counter: MutableLiveData<Int> = MutableLiveData<Int>().apply {
+    // membuat backing properties
+    private val _counter: MutableLiveData<Int> = MutableLiveData<Int>().apply { // ini sifatnya private, isolated
         postValue(0)
     }
 
-    val counter: LiveData<Int>
-        get() = _counter
+    val counter: LiveData<Int> // ini dia yang diexpost ke views
+        get() = _counter // meng-overated variable _counter
 
     fun increment() {
         val currentValue = _counter.value ?: 0

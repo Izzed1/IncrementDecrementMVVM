@@ -36,10 +36,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // invoker method :
     private fun decrement() {
         viewModel.decrement()
     }
 
+    // invoker method :
     private fun increment() {
         viewModel.increment()
     }
